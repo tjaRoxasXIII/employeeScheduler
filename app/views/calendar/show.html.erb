@@ -14,18 +14,23 @@
 <div class="row">
   <div class="col-md-12">
     <%= calendar @date do |date| %>
-      <%= date.day %>
-      <% if @employee["workday"].include? date %>
-        <div>
-            <%= @employee["name"]  %>
-        </div>
-      <% end %>
+        <%= date.day %>
+        <% @employees.each do |employee| %>
+            <% if employee.first_name === "Penny" %>
+                <div>
+                    <%= employee.first_name %>
+                </div>
+            <% end %>
+        <% end %>
     <% end %>
   </div>
 </div>
 <div class="row text-center">
     <h1>Employees</h1>
-    <div class="col-md-12">
+    <% @employees.each do |employee| %>
+        <div class="col-md-12">
+            <%= employee.full_name %>    
+        </div>
+    <% end %>
         
-    </div>
 </div>
