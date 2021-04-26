@@ -1,0 +1,35 @@
+<%= form_for :workday do |f| %>
+    <br/>
+    <% User.all.each do |user| %>
+        <%= f.check_box "name" %>
+        <%= f.label user.full_name %>
+    <% end %>
+    <div class="field">
+        <%= f.label :date %>
+        <%= f.text_field :date %>
+    </div>
+
+    <div class="field">
+        <%= f.label :start_hour %>
+        <%= f.text_field :start_hour%>
+    </div>
+
+    <div class="field">
+        <%= f.label :start_min %>
+        <%= f.text_field :start_min%>
+    </div>
+
+    <div class="field">
+        <%= f.label :end_hour %>
+        <%= f.text_field :end_hour%>
+    </div>
+
+    <div class="field">
+        <%= f.label :end_min %>
+        <%= f.text_field :end_min%>
+    </div>
+
+    <div class="actions">
+        <%= f.submit "Add Schedule Event" %>
+    </div>
+<% end %>
