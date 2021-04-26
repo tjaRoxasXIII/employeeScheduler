@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2021_04_25_005318) do
     t.string "first_name"
     t.string "last_name"
     t.string "job_title"
-    t.text "workdays"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -33,9 +32,10 @@ ActiveRecord::Schema.define(version: 2021_04_25_005318) do
 
   create_table "workdays", force: :cascade do |t|
     t.date "date"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.float "hours_worked"
+    t.integer "start_hour"
+    t.integer "start_min"
+    t.integer "end_hour"
+    t.integer "end_min"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
