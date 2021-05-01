@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 2021_04_25_005318) do
     t.date "date"
     t.integer "start_hour"
     t.integer "start_min"
+    t.string "start_am_or_pm"
     t.integer "end_hour"
     t.integer "end_min"
+    t.string "end_am_or_pm"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

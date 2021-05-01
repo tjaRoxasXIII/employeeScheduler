@@ -19,10 +19,11 @@
     <%= calendar @date do |date| %>
         <%= date.day %>
         <% @employees.each do |employee| %>
-            <% if employee.first_name === "Penny" %>
-                <div>
-                    <%= employee.first_name %>
-                </div>
+            <% if employee.workdays.find_by(:date => date) %>
+                <% workday = employee.workdays.find_by(:date => date) %>
+                  <div>
+                      <%= employee.initials+ ":" + workday.schedule %>
+                  </div>
             <% end %>
         <% end %>
     <% end %>

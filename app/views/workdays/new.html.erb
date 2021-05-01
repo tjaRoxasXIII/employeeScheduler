@@ -6,27 +6,23 @@
     <% end %>
     <div class="field">
         <%= f.label :date %>
-        <%= f.text_field :date %>
+        <%= f.date_field :date %>
     </div>
 
     <div class="field">
-        <%= f.label :start_hour %>
-        <%= f.text_field :start_hour%>
+        <%= f.label :start_time %>
+        <%= f.select :start_hour, ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]%>
+        <%= ":" %>
+        <%= f.select :start_min, ["00", "15", "30", "45"] %>
+        <%= f.select :start_am_or_pm, ["AM", "PM"] %>
     </div>
 
     <div class="field">
-        <%= f.label :start_min %>
-        <%= f.text_field :start_min%>
-    </div>
-
-    <div class="field">
-        <%= f.label :end_hour %>
-        <%= f.text_field :end_hour%>
-    </div>
-
-    <div class="field">
-        <%= f.label :end_min %>
-        <%= f.text_field :end_min%>
+        <%= f.label :end_time %>
+        <%= f.select :end_hour, ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]%>
+        <%= ":" %>
+        <%= f.select :end_min, ["00", "15", "30", "45"] %>
+        <%= f.select :end_am_or_pm, ["AM", "PM"] %>
     </div>
 
     <div class="actions">
