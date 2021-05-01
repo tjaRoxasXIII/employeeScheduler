@@ -1,8 +1,8 @@
-<%= form_for :workday do |f| %>
+<%= form_for @workday do |f| %>
     <br/>
     <% User.all.each do |user| %>
-        <%= f.check_box "name" %>
-        <%= f.label user.full_name %>
+        <%= f.check_box "id", {multiple: true}, user.id %>
+        <%= user.full_name %>
     <% end %>
     <div class="field">
         <%= f.label :date %>
