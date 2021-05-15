@@ -17,14 +17,13 @@
 <div class="row">
   <div class="col-md-12">
     <%= calendar @date do |date| %>
+        <% workdays = [] %>
         <%= date.day %>
-        <% @employees.each do |employee| %>
-            <% if employee.workdays.find_by(:date => date) %>
-                <% workday = employee.workdays.find_by(:date => date) %>
-                  <div>
-                      <%= employee.initials+ ":" + workday.schedule %>
-                  </div>
-            <% end %>
+        <% workdays = Workday.all.find_all { |i| i.date == date } %>
+        <% workdays.each do |workday| %>
+          <div>
+            <%= workday.schedule %>
+          </div>
         <% end %>
     <% end %>
   </div>
