@@ -18,18 +18,18 @@
   <div class="col-md-12">
     <%= calendar @date do |date| %>
         <% workdays = [] %>
-        <%= date.day %>
+        <p style = "text-decoration:underline; font-weight:bold;" ><%= date.day %></p>
         <% workdays = Workday.all.find_all { |i| i.date == date } %>
         <% workdays.each do |workday| %>
           <div>
-            <%= workday.schedule %>
+            <%= workday.user.initials + " " + workday.schedule %>
           </div>
         <% end %>
     <% end %>
   </div>
 </div>
 <div class="row text-center">
-    <h1>Employees</h1>
+    <h1 style = "text-decoration:underline; font-weight:bold;">Employees</h1>
     <% @employees.each do |employee| %>
         <div class="col-md-12">
             <%= employee.full_name %>    

@@ -1,9 +1,10 @@
 class Workday < ApplicationRecord
+    belongs_to :user
 
     def schedule
         start_minutes = "00"
         end_minutes = "00"
-        
+
         if self.start_min != 0
             start_minutes = self.start_min.to_s
         end
