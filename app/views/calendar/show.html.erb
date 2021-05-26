@@ -23,6 +23,7 @@
         <% workdays.each do |workday| %>
           <div>
             <%= workday.user.initials + " " + workday.schedule %>
+            <%= button_to "X", {:controller => :workdays, :action => 'destroy', :id => workday.id }, :method => :delete, form: {style: 'display:inline-block;'}%>
           </div>
         <% end %>
     <% end %>
